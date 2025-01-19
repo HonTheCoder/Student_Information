@@ -1,0 +1,215 @@
+body {
+  min-height: 100vh;
+  background: linear-gradient(
+    135deg,
+    #ffa500,
+    #1e90ff
+  ); /* Orange to Blue gradient */
+  overflow: hidden; /* Disable scrolling on the body */
+  margin: 0; /* Remove default margin */
+  font-family: Arial, sans-serif; /* Set a default font */
+}
+
+.dashboard {
+  position: relative;
+  left: 0;
+  background-color: var(--panel-color);
+  min-height: 100vh;
+  width: 100%;
+  padding: 10px 14px;
+  transition: var(--tran-05);
+}
+nav.close ~ .dashboard {
+  left: 73px;
+  width: calc(100% - 73px);
+}
+.dashboard .top {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 14px;
+  background-color: var(--panel-color);
+  transition: var(--tran-05);
+  z-index: 10;
+}
+nav.close ~ .dashboard .top {
+  left: 73px;
+  width: calc(100% - 73px);
+}
+.dashboard .top .sidebar-toggle {
+  font-size: 26px;
+  color: var(--text-color);
+  cursor: pointer;
+}
+.dashboard .top .search-box {
+  position: relative;
+  height: 45px;
+  max-width: 600px;
+  width: 100%;
+  margin: 0 30px;
+  border-radius: 25px; /* Rounded corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  overflow: hidden; /* Ensure content stays within rounded corners */
+  backdrop-filter: blur(5px); /* Apply blur effect */
+}
+.top .search-box input {
+  position: absolute;
+  border: none; /* Remove default border */
+  background-color: white; /* Set background color to white */
+  padding: 0 25px 0 50px;
+  border-radius: 25px; /* Match the container's rounded corners */
+  height: 100%;
+  width: 100%;
+  color: var(--text-color);
+  font-size: 15px;
+  font-weight: 400;
+  outline: none;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1); /* Inner shadow for depth */
+}
+.top .search-box i {
+  position: absolute;
+  left: 15px;
+  font-size: 22px;
+  z-index: 10;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--black-light-color);
+  transition: color 0.3s ease; /* Smooth color transition */
+}
+.top .search-box input:focus + i {
+  color: var(--primary-color); /* Change icon color on focus */
+}
+
+/* Student List Table Styles */
+.student-list {
+  padding-top: 50px;
+  margin-top: 20px;
+  background-color: var(--panel-color);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: auto; /* Enable scrolling within the student list */
+  width: 100%;
+  height: calc(100vh - 150px); /* Adjust height to fit within the viewport */
+}
+
+.student-list h2 {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  color: var(--text-color);
+  font-size: 55px;
+  white-space: nowrap;
+  font-family: sans-serif;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.student-list table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid black; /* Add black border around the table */
+  backdrop-filter: blur(5px); /* Apply blur effect */
+}
+
+.student-list th,
+.student-list td {
+  padding: 12px;
+  text-align: left;
+  border: 1px solid black; /* Ensure all borders are black */
+  color: var(--text-color);
+}
+
+.student-list th {
+  background-color: #1976d2;
+  color: var(--title-icon-color);
+  font-weight: 500;
+}
+
+.student-list tr:hover {
+  background-color: var(--box1-color);
+}
+
+.student-list td {
+  background-color: var(--panel-color);
+}
+
+.student-list tr:last-child td {
+  border-bottom: none; /* Remove bottom border for the last row */
+}
+
+.view-btn,
+.edit-btn,
+.delete-btn {
+  padding: 8px 16px;
+  margin: 0 5px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.2s ease,
+    box-shadow 0.2s ease;
+  color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.view-btn {
+  background-color: #2196f3; /* Blue */
+}
+
+.view-btn:hover {
+  background-color: #1976d2;
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.edit-btn {
+  background-color: #4caf50; /* Green */
+}
+
+.edit-btn:hover {
+  background-color: #45a049;
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.delete-btn {
+  background-color: #f44336; /* Red */
+}
+
+.delete-btn:hover {
+  background-color: #e53935;
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 600px) {
+  .student-list table,
+  .student-list th,
+  .student-list td {
+    display: block;
+    width: 100%;
+  }
+
+  .student-list th,
+  .student-list td {
+    text-align: right;
+    padding-left: 50%;
+    position: relative;
+  }
+
+  .student-list th::before,
+  .student-list td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 0;
+    width: 50%;
+    padding-left: 15px;
+    font-weight: bold;
+    text-align: left;
+  }
+}

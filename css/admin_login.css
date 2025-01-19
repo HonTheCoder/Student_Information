@@ -1,0 +1,123 @@
+@import url("https://fonts.googleapis.com/css2?family=Asap:wght@400;700&display=swap");
+
+body {
+  background: linear-gradient(
+    135deg,
+    #87ceeb,
+    #ffa500
+  ); /* Sky Blue to Orange */
+  font-family: "Asap", sans-serif;
+}
+
+.login {
+  overflow: hidden;
+  background-color: white;
+  padding: 40px 30px 30px 30px;
+  border-radius: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  transform: translate(-50%, -50%);
+  transition: transform 300ms, box-shadow 300ms;
+  box-shadow: 5px 10px 10px rgba(2, 128, 144, 0.2); /* $greenSeaweed */
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    border-top-left-radius: 40%;
+    border-top-right-radius: 45%;
+    border-bottom-left-radius: 35%;
+    border-bottom-right-radius: 40%;
+    z-index: -1;
+  }
+
+  &::before {
+    left: 40%;
+    bottom: -130%;
+    background-color: rgba(69, 105, 144, 0.15); /* $blueQueen */
+    animation: wawes 6s infinite linear;
+  }
+
+  &::after {
+    left: 35%;
+    bottom: -125%;
+    background-color: rgba(2, 128, 144, 0.2); /* $greenSeaweed */
+    animation: wawes 7s infinite;
+  }
+
+  > input {
+    font-family: "Asap", sans-serif;
+    display: block;
+    border-radius: 5px;
+    font-size: 16px;
+    background: white;
+    width: 100%;
+    border: 0;
+    padding: 10px 10px;
+    margin: 15px -10px;
+  }
+
+  > button {
+    font-family: "Asap", sans-serif;
+    cursor: pointer;
+    color: #fff;
+    font-size: 16px;
+    text-transform: uppercase;
+    width: 80px;
+    border: 0;
+    padding: 10px 0;
+    margin-top: 10px;
+    margin-left: -5px;
+    border-radius: 5px;
+    background-color: rgba(244, 91, 105, 1); /* $redFire */
+    transition: background-color 300ms;
+  }
+
+  > button:hover {
+    background-color: #d85b5b; /* darken($redFire, 5%) */
+  }
+}
+
+@keyframes wawes {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+a {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.6);
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  font-size: 12px;
+}
+
+.back-button {
+  position: absolute;
+  top: 10px;
+  font-family: "Asap", sans-serif;
+  cursor: pointer;
+  color: #fff;
+  font-size: 16px;
+  border-radius: 5px;
+  text-transform: uppercase;
+  right: 10px;
+  width: 40px;
+  height: 17px;
+  padding: 10px;
+  margin: 0;
+  background-color: rgba(244, 91, 105, 1); /* $redFire */
+  transition: background-color 300ms;
+  display: inline-block;
+}
+
+.back-button:hover {
+  background-color: #d85b5b; /* darken($redFire, 5%) */
+}
